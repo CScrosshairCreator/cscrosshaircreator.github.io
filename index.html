@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CS Crosshair Generator</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <div class="app">
+    <h1>CS Crosshair Generator</h1>
+
+    <div class="main">
+      <canvas id="preview" width="300" height="300"></canvas>
+
+      <div class="controls">
+        <label>Size <input type="range" id="size" min="1" max="20" value="5"></label>
+        <label>Gap <input type="range" id="gap" min="-10" max="20" value="2"></label>
+        <label>Thickness <input type="range" id="thickness" min="1" max="10" value="1"></label>
+        <label>Color <input type="color" id="color" value="#00ff00"></label>
+        <label>
+          Style
+          <select id="style">
+            <option value="classic">Classic</option>
+            <option value="dot">Dot</option>
+          </select>
+        </label>
+
+        <button id="copy">Copy CS Command</button>
+        <textarea id="output" readonly></textarea>
+      </div>
+    </div>
+
+    <p class="footer">Static site – works on GitHub Pages</p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  background: #0f1115;
+  color: #e6e6e6;
+}
+
+.app {
+  max-width: 900px;
+  margin: auto;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+}
+
+.main {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+canvas {
+  background: #1b1e26;
+  border-radius: 12px;
+}
+
+.controls {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 260px;
+}
+
+label {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+input[type="range"] {
+  flex: 1;
+}
+
+button {
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  background: #4caf50;
+  color: #000;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+textarea {
+  min-height: 80px;
+  resize: none;
+  border-radius: 8px;
+  padding: 8px;
+  background: #111;
+  color: #0f0;
+}
+
+.footer {
+  text-align: center;
+  opacity: 0.6;
+  margin-top: 20px;
+}
