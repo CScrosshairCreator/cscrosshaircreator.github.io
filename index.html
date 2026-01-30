@@ -3,33 +3,175 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>CS Crosshair Generator</title>
+  <meta name="description" content="Create and customize your perfect Counter-Strike crosshair with real-time preview. Generate CS:GO and CS2 crosshair commands instantly with our modern crosshair generator."/>
+  <meta name="keywords" content="CS crosshair, CS:GO crosshair, CS2 crosshair, crosshair generator, counter-strike, crosshair creator"/>
+  <meta name="author" content="CS Crosshair Creator"/>
+  
+  <!-- Open Graph / Social Media -->
+  <meta property="og:type" content="website"/>
+  <meta property="og:title" content="CS Crosshair Generator - Create Your Perfect Crosshair"/>
+  <meta property="og:description" content="Design and customize your Counter-Strike crosshair with real-time preview. Generate commands for CS:GO and CS2 instantly."/>
+  <meta property="og:image" content="https://cscrosshaircreator.github.io/screenshot.png"/>
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="CS Crosshair Generator"/>
+  <meta name="twitter:description" content="Create your perfect Counter-Strike crosshair with real-time preview"/>
+  
+  <title>CS Crosshair Generator - Create Your Perfect Crosshair</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
   <link rel="stylesheet" href="style.css"/>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1108837045646107"
      crossorigin="anonymous"></script>
 </head>
 <body>
+  <!-- Theme Toggle -->
+  <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+    <svg id="themeIcon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    </svg>
+  </button>
+
   <div class="app">
-    <h1>CS Crosshair Generator</h1>
+    <header>
+      <h1>CS Crosshair Generator</h1>
+      <p class="subtitle">Create your perfect crosshair for CS:GO and CS2</p>
+    </header>
 
     <div class="main">
-      <canvas id="preview" width="300" height="300"></canvas>
+      <!-- Preview Section -->
+      <section class="preview-section">
+        <h2 class="section-title">Preview</h2>
+        <canvas id="preview" width="300" height="300" aria-label="Crosshair preview"></canvas>
+      </section>
 
-      <div class="controls">
-        <label>Size <input type="range" id="size" min="1" max="20" value="5"></label>
-        <label>Gap <input type="range" id="gap" min="-10" max="20" value="2"></label>
-        <label>Thickness <input type="range" id="thickness" min="1" max="10" value="1"></label>
-        <label>Color <input type="color" id="color" value="#00ff00"></label>
-        <label>
-          Style
-          <select id="style">
-            <option value="classic">Classic</option>
-            <option value="dot">Dot</option>
-          </select>
-        </label>
+      <!-- Controls Section -->
+      <section class="controls-section">
+        <h2 class="section-title">Customize</h2>
+        <div class="controls">
+          <div class="control-group">
+            <div class="control-label">
+              <span>Size</span>
+              <span class="control-value" id="sizeValue">5</span>
+            </div>
+            <input type="range" id="size" min="1" max="20" value="5" aria-label="Crosshair size"/>
+          </div>
 
-        <button id="copy">Copy CS Command</button>
-        <textarea id="output" readonly></textarea>
+          <div class="control-group">
+            <div class="control-label">
+              <span>Gap</span>
+              <span class="control-value" id="gapValue">2</span>
+            </div>
+            <input type="range" id="gap" min="-10" max="20" value="2" aria-label="Crosshair gap"/>
+          </div>
+
+          <div class="control-group">
+            <div class="control-label">
+              <span>Thickness</span>
+              <span class="control-value" id="thicknessValue">1</span>
+            </div>
+            <input type="range" id="thickness" min="1" max="10" value="1" aria-label="Crosshair thickness"/>
+          </div>
+
+          <div class="control-group">
+            <div class="control-label">
+              <span>Opacity</span>
+              <span class="control-value" id="opacityValue">255</span>
+            </div>
+            <input type="range" id="opacity" min="0" max="255" value="255" aria-label="Crosshair opacity"/>
+          </div>
+
+          <div class="control-group">
+            <div class="control-label">
+              <span>Outline Thickness</span>
+              <span class="control-value" id="outlineValue">0</span>
+            </div>
+            <input type="range" id="outline" min="0" max="3" value="0" aria-label="Outline thickness"/>
+          </div>
+
+          <div class="control-group">
+            <label class="control-label" for="color">Color</label>
+            <input type="color" id="color" value="#00ff00" aria-label="Crosshair color"/>
+          </div>
+
+          <div class="control-group">
+            <label class="control-label" for="style">Style</label>
+            <select id="style" aria-label="Crosshair style">
+              <option value="classic">Classic (4 lines)</option>
+              <option value="dot">Dot</option>
+              <option value="t-style">T-Style (no top)</option>
+              <option value="circle">Circle</option>
+              <option value="square">Square</option>
+            </select>
+          </div>
+
+          <div class="control-group">
+            <label class="checkbox-wrapper">
+              <input type="checkbox" id="drawDot" aria-label="Center dot"/>
+              <span>Center Dot</span>
+            </label>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Presets Section -->
+    <section class="presets">
+      <h2 class="section-title">Pro Player Presets</h2>
+      <div class="preset-grid">
+        <button class="preset-btn" data-preset="s1mple">s1mple</button>
+        <button class="preset-btn" data-preset="niko">NiKo</button>
+        <button class="preset-btn" data-preset="zywoo">ZywOo</button>
+        <button class="preset-btn" data-preset="device">dev1ce</button>
+        <button class="preset-btn" data-preset="electronic">electronic</button>
+        <button class="preset-btn" data-preset="twistzz">Twistzz</button>
+        <button class="preset-btn" data-preset="ropz">ropz</button>
+        <button class="preset-btn" data-preset="m0nesy">m0NESY</button>
+      </div>
+    </section>
+
+    <!-- Output Section -->
+    <section class="output-section">
+      <h2 class="section-title">Generated Command</h2>
+      <div class="button-group">
+        <button class="primary" id="copy" aria-label="Copy command to clipboard">
+          📋 Copy Command
+        </button>
+        <button class="secondary" id="share" aria-label="Share crosshair via URL">
+          🔗 Share URL
+        </button>
+      </div>
+      <textarea id="output" readonly aria-label="Generated CS command"></textarea>
+    </section>
+
+    <!-- Help Section -->
+    <section class="help-section">
+      <h2 class="section-title">How to Use</h2>
+      <div class="help-content">
+        <h3>🎯 Getting Started</h3>
+        <p>Adjust the sliders and options above to customize your crosshair. The preview updates in real-time so you can see exactly how it will look in-game.</p>
+        
+        <h3>📝 Applying Your Crosshair</h3>
+        <p>1. Click the "Copy Command" button to copy the generated command<br/>
+        2. Open Counter-Strike and press <code>~</code> to open the console<br/>
+        3. Paste the command and press Enter<br/>
+        4. Your new crosshair is now active!</p>
+        
+        <h3>💾 Saving Your Settings</h3>
+        <p>Your last used settings are automatically saved in your browser. You can also share your crosshair with friends using the "Share URL" button.</p>
+        
+        <h3>⭐ Pro Tips</h3>
+        <p>• Try the pro player presets for inspiration<br/>
+        • Use outline for better visibility on bright backgrounds<br/>
+        • Adjust opacity to make your crosshair less obtrusive<br/>
+        • The T-Style crosshair is popular among AWP players</p>
+      </div>
+    </section>
+
+    <footer>
+      <p>Made with ❤️ for the CS community | <a href="https://github.com/CScrosshairCreator/cscrosshaircreator.github.io" target="_blank" rel="noopener">View on GitHub</a></p>
+    </footer>
+  </div>
 
   <script src="script.js"></script>
 </body>

@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00d9ff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#7c3aed;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background circle -->
+  <circle cx="50" cy="50" r="48" fill="#0a0e14" stroke="url(#grad)" stroke-width="3"/>
+  
+  <!-- Crosshair -->
+  <g stroke="url(#grad)" stroke-width="4" stroke-linecap="round">
+    <!-- Left -->
+    <line x1="25" y1="50" x2="40" y2="50"/>
+    <!-- Right -->
+    <line x1="60" y1="50" x2="75" y2="50"/>
+    <!-- Top -->
+    <line x1="50" y1="25" x2="50" y2="40"/>
+    <!-- Bottom -->
+    <line x1="50" y1="60" x2="50" y2="75"/>
+  </g>
+  
+  <!-- Center dot -->
+  <circle cx="50" cy="50" r="3" fill="url(#grad)"/>
+</svg>
